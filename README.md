@@ -73,7 +73,7 @@ php artisan queue:work
 ## Example Request: Create Hold
 
 ``` json
-POST /products/hold
+POST /holds
 {
   "product_id": 1,
   "quantity": 2
@@ -92,7 +92,7 @@ POST /orders
 ## Example Request: Webhook
 
 ``` json
-POST /webhook
+POST /payments/webhook
 {
   "order_id": 123,
   "payment_status": "paid",
