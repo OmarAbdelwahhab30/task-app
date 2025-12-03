@@ -118,6 +118,12 @@ class ProductController extends Controller
 
     public function handleWebhook(Request $request)
     {
+        $request->validate([
+            'order_id' => 'required|exists:orders,id',
+            'payment_status' => 'required',
+            'idempotency_key' => 'required',
+        ]);
+
         $payload = $request->all();
 
         if (Cache::has("webhook_{$payload['idempotency_key']}")) {
